@@ -1,0 +1,29 @@
+<div class="flex justify-between items-center mb-6">
+  <h1 class="text-4xl font-bold text-gray-800">Filmes</h1>
+  <%= link_to 'Adicionar Novo Filme', new_movie_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg' %>
+</div>
+
+<div class="overflow-x-auto bg-white rounded-lg shadow">
+  <table class="min-w-full leading-normal">
+    <thead>
+      <tr class="border-b-2 border-gray-200 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+        <th class="px-5 py-3">Título</th>
+        <th class="px-5 py-3">Classificação</th>
+        <th class="px-5 py-3">Data de Lançamento</th>
+        <th class="px-5 py-3">Mais Informações</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700">
+      <% @movies.each do |movie| %>
+        <tr class="border-b border-gray-200 hover:bg-gray-100">
+          <td class="px-5 py-4"><%= movie.title %></td>
+          <td class="px-5 py-4"><%= movie.rating %></td>
+          <td class="px-5 py-4"><%= movie.release_date.strftime('%d/%m/%Y') %></td>
+          <td class="px-5 py-4">
+            <%= link_to 'Detalhes', movie_path(movie), class: 'text-blue-500 hover:underline' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

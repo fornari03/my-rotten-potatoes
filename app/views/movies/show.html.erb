@@ -1,0 +1,18 @@
+<div class="bg-white p-8 rounded-lg shadow-md">
+  <h1 class="text-4xl font-bold mb-4 text-gray-900"><%= @movie.title %></h1>
+
+  <div class="space-y-4 text-gray-700">
+    <p><strong>Classificação:</strong> <%= @movie.rating %></p>
+    <p><strong>Data de Lançamento:</strong> <%= @movie.release_date.strftime('%d de %B de %Y') %></p>
+    <div>
+      <h2 class="text-2xl font-semibold mb-2">Descrição:</h2>
+      <p class="text-gray-600 leading-relaxed"><%= @movie.description %></p>
+    </div>
+  </div>
+
+  <div class="mt-8 flex space-x-4">
+    <%= link_to 'Editar', edit_movie_path(@movie), class: 'bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg' %>
+    <%= link_to 'Deletar', movie_path(@movie), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg' %>
+    <%= link_to 'Voltar para a Lista', movies_path, class: 'bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg' %>
+  </div>
+</div>
