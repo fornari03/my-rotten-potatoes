@@ -60,4 +60,12 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  
+  # Gems para BDD (Cucumber e RSpec)
+  gem "cucumber-rails", require: false
+  gem "rspec-rails"
+  
+  # Gems para limpeza do banco de dados durante os testes
+  gem "database_cleaner"
+  gem "database_cleaner-active_record"
 end
