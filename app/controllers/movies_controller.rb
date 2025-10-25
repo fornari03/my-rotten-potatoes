@@ -5,10 +5,15 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings
     
-    if params[:ratings]
-      @ratings_to_show = params[:ratings].keys
+    if params[:commit] == "Refresh" && params[:ratings].nil?
+      @ratings_to_show = []
+      @permitted_ratings_hash = {}
+    elsif params[:ratings]
+      @permitted_ratings_hash = params.require(:ratings).permit(@all_ratings.map(&:to_sym)).to_h
+      @ratings_to_show = @permitted_ratings_hash.keys
     else
       @ratings_to_show = @all_ratings
+      @permitted_ratings_hash = @all_ratings.index_with('1')
     end
     
     @sort_by = params[:sort]
