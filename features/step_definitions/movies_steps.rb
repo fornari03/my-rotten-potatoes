@@ -23,3 +23,8 @@ Then "I should see all of the movies" do
   rows = page.all('tbody tr').size
   expect(rows).to eq(Movie.count)
 end
+
+# step to verify order of movies
+Then /I should see "(.*)" before "(.*)"/ do |movie1, movie2|
+  expect(page.body.index(movie1)).to be < page.body.index(movie2)
+end
