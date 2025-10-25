@@ -22,11 +22,11 @@
     <thead>
       <tr class="border-b-2 border-gray-200 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
         <th class="px-5 py-3 <%= highlight_class('title') %>">
-          <%= link_to 'Título', movies_path(sort: 'title', ratings: params[:ratings]), id: 'title_header', class: 'hover:text-blue-500' %>
+          <%= link_to 'Título', movies_path(sort: 'title', ratings: @permitted_ratings_hash), id: 'title_header', class: 'hover:text-blue-500' %>
         </th>
         <th class="px-5 py-3">Classificação</th>
         <th class="px-5 py-3 <%= highlight_class('release_date') %>">
-           <%= link_to 'Data de Lançamento', movies_path(sort: 'release_date', ratings: params[:ratings]), id: 'release_date_header', class: 'hover:text-blue-500' %>
+           <%= link_to 'Data de Lançamento', movies_path(sort: 'release_date', ratings: @permitted_ratings_hash), id: 'release_date_header', class: 'hover:text-blue-500' %>
         </th>
         <th class="px-5 py-3">Mais Informações</th>
       </tr>
