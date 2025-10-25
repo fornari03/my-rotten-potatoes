@@ -28,3 +28,10 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |movie1, movie2|
   expect(page.body.index(movie1)).to be < page.body.index(movie2)
 end
+
+
+Given('I check all ratings') do
+  Movie.all_ratings.each do |rating|
+    check("ratings[#{rating}]")
+  end
+end
